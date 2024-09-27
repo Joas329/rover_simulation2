@@ -29,7 +29,7 @@ using hardware_interface::CommandInterface;
 using hardware_interface::HW_IF_POSITION;
 
 // subclassing and friending so we can access member variables
-class FriendYursArmController : public forward_command_controller::YursArmController
+class FriendYursArmController : public yurs_arm_controller::YursArmController
 {
   FRIEND_TEST(YursArmControllerTest, JointsParameterNotSet);
   FRIEND_TEST(YursArmControllerTest, InterfaceParameterNotSet);

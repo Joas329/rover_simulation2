@@ -60,7 +60,7 @@ void YursArmControllerTest::TearDown() { controller_.reset(nullptr); }
 
 void YursArmControllerTest::SetUpController()
 {
-  const auto result = controller_->init("yurs_arm_controller", "", 0);
+  const auto result = controller_->init("yurs_arm_controller", "");
   ASSERT_EQ(result, controller_interface::return_type::OK);
 
   std::vector<LoanedCommandInterface> command_ifs;
@@ -286,7 +286,7 @@ TEST_F(YursArmControllerTest, CommandCallbackTest)
   // send a new command
   rclcpp::Node test_node("test_node");
   auto command_pub = test_node.create_publisher<std_msgs::msg::Float64MultiArray>(
-    std::string(controller_->get_node()->get_name()) + "/commands", rclcpp::SystemDefaultsQoS());
+    std::string(controller_->get_node()->get_name()) + "/armCommands", rclcpp::SystemDefaultsQoS());
   std_msgs::msg::Float64MultiArray command_msg;
   command_msg.data = {10.0, 20.0, 30.0};
   command_pub->publish(command_msg);
@@ -294,7 +294,7 @@ TEST_F(YursArmControllerTest, CommandCallbackTest)
   // wait for command message to be passed
   ASSERT_EQ(wait_for(controller_->joints_command_subscriber_), rclcpp::WaitResultKind::Ready);
 
-  // process callbacks
+  // process callbacksfc
   rclcpp::spin_some(controller_->get_node()->get_node_base_interface());
 
   // update successful

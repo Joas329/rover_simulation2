@@ -9,10 +9,21 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>backward_ros</depend>
+  <depend>controller_interface</depend>
+  <depend>generate_parameter_library</depend>
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>realtime_tools</depend>
 
+  <test_depend>ament_cmake_gmock</test_depend>
+  <test_depend>controller_manager</test_depend>
+  <test_depend>ros2_control_test_assets</test_depend>
+  <test_depend>hardware_interface</test_depend>
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 

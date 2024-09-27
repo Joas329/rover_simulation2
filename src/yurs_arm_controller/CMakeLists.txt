@@ -72,12 +72,12 @@ if(BUILD_TESTING)
     hardware_interface
     ros2_control_test_assets
   )
-  # ament_add_gmock(test_yurs_arm_controller
-  #   test/test_yurs_arm_controller.cpp
-  # )
-  # target_link_libraries(test_yurs_arm_controller
-  #   yurs_arm_controller
-  # )
+  ament_add_gmock(test_yurs_arm_controller
+    test/test_yurs_arm_controller.cpp
+  )
+  target_link_libraries(test_yurs_arm_controller
+    yurs_arm_controller
+  )
 endif()
 
 install(
